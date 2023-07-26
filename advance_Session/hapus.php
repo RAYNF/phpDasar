@@ -1,4 +1,13 @@
 <?php
+session_start();
+// cek apakah user sudah berhasil login 
+
+//bila belum login maka lempar kembali ke halaman login 
+if(!isset($_SESSION["login"])){
+    header("Location: login.php");
+    exit;
+}
+
     require 'functions.php';
     $id = $_GET["id"];
 

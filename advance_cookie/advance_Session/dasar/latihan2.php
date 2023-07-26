@@ -1,3 +1,9 @@
+<?php 
+   
+    //panggil cookie nya 
+    echo $_COOKIE['nama'];
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

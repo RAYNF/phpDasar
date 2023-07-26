@@ -1,4 +1,6 @@
 <?php 
+//jalankan session nya 
+session_start();
 if(isset($_POST["submit"])){
     if($_POST["username"]=="admin"&& $_POST["password"]=="123"){
         header("Location: latihan2.php");
@@ -8,6 +10,8 @@ if(isset($_POST["submit"])){
         $error = true;
     }
 }
+//buat variabel nama dan isi dengan joko
+$_SESSION["nama"] = "joko";
 ?>
 
 <!DOCTYPE html>

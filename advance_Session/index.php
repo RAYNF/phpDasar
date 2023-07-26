@@ -1,4 +1,13 @@
 <?php 
+session_start();
+    // cek apakah user sudah berhasil login 
+
+    //bila belum login maka lempar kembali ke halaman login 
+    if(!isset($_SESSION["login"])){
+        header("Location: login.php");
+        exit;
+    }
+
    // ambil data dari functions.php
     require  'functions.php';
     // if($conn == false){
@@ -39,6 +48,8 @@
     <br>
     <a href="tambah.php">tambah data</a>
     <br>
+    <!-- Logout -->
+    <a href="logout.php">LogOut</a>
     <table border="1" cellpadding = "10">
         <tr>
             <th>no</th>
