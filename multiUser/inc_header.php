@@ -5,6 +5,7 @@
     require 'inc_koneksi.php';
     //jika belum login maka akan dilempar halaman login
     print_r($_SESSION['admin_akses']);
+    
     if(!isset($_SESSION['admin_username'])){
         header("location:login.php");
     }

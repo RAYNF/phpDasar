@@ -76,7 +76,7 @@ use FontLib\Table\Type\head;
         ?>
         <form action="" method="post">
             
-            <input type="text" name="username" id="username" placeholder="username....">
+            <input type="text" name="username" id="username" placeholder="username...." value="<?php echo $username ;?>">
             <br>
             
             <input type="password" name="password" id="password" placeholder="password...">
