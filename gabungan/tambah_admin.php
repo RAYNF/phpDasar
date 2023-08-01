@@ -20,8 +20,22 @@
             //buat sintaks memasukan data ke dalama databases
             $sql = "INSERT INTO admin VALUES('','$username','$password')";
             //perintah memasukan 
-            mysqli_query($conn,$sql);
+         $a = mysqli_query($conn,$sql);
             //mengecek apakah berhasil atau tidak
+            if($a){
+                echo "
+            <script>
+            alert('user berhasil ditambahkan');
+            </script>
+            ";
+            }else{
+                echo " 
+                <script>
+                alert('user gagal ditambahkan');
+                </script>
+                ";
+            }
+
         }
     }
 ?>

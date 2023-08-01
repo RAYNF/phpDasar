@@ -22,7 +22,8 @@
     <nav>
         <ul>
             <li><a href="logout.php">Logout</a></li>
-            <li><a href="tambah.php">Tambah</a></li>
+            <li><a href="tambah_admin.php">Tambah user</a></li>
+            <li><a href="daftar_admin.php">Daftar admin</a></li>
         </ul>
     </nav>
     
