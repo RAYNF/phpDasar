@@ -17,6 +17,8 @@
 ?>
 
     <h1>Daftar admin</h1>
+    
+    <a href="tambah_admin.php">Tambah user</a>
     <br>
     <table border="1" cellpadding="10">
         <tr>
@@ -29,8 +31,8 @@
         <tr>
             <td><?php echo $i?></td>
             <td>
-                <a href="ubah_admin.php?id=<?php echo $row["id_login"]?>">ubah</a>
-                <a href="#">hapus</a>
+                <a href="ubah_admin.php?id_login=<?php echo $row["id_login"];?>">ubah</a>
+                <a href="hapus_admin.php?id_login=<?php echo $row["id_login"];?>">hapus</a>
             </td>
             <td><?php echo $row["username"]?></td>
         </tr>

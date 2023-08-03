@@ -18,7 +18,7 @@
         }
         if(empty($err)){
             //buat sintaks memasukan data ke dalama databases
-            $sql = "INSERT INTO admin VALUES('','$username','$password')";
+            $sql = "INSERT INTO admin VALUES('','$username',MD5('$password'))";
             //perintah memasukan 
          $a = mysqli_query($conn,$sql);
             //mengecek apakah berhasil atau tidak
