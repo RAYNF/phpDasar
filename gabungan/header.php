@@ -22,7 +22,9 @@
     <nav>
         <ul>
             <li><a href="logout.php">Logout</a></li>
+            <?php if(in_array("admin",$_SESSION['admin_akses'])):?>
             <li><a href="daftar_admin.php">Daftar admin</a></li>
+            <?php endif?>
             <li><a href="index.php">Beranda</a></li>
         </ul>
     </nav>

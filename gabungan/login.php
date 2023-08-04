@@ -35,10 +35,28 @@
             }
         }
 
+        //hak akses
+        if(empty($err)){
+            //cek apakah user tersebut punya akses
+            //login id didapat dari table admin
+            $login_id = $r1['id_login'];
+            $sql1="SELECT * FROM admin_akses WHERE id_login = '$login_id'";
+            $q1 = mysqli_query($conn,$sql1);
+            while($r1 = mysqli_fetch_assoc($q1)){
+                //memasukan akses id yang ada di admin_akses
+                $akses[] = $r1['akses_id'];//isinya spp,guru,siswa
+            }
+            if(empty($akses)){
+                $err .= "<li>kamu tidak punya akses</li>";
+            }
+        }
+
         //jika tidak ada error arahkan ke halaman index.php
         if(empty($err)){
             //apabila tidak ada eror maka dibuatlah session
             $_SESSION['admin_username'] = $username;
+            //admin akses di simpan di session
+            $_SESSION['admin_akses'] = $akses;
             header("Location: index.php");
             exit();
         }
