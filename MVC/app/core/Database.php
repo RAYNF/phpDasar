@@ -18,6 +18,7 @@ class Database{
         $option = [
             //berfungsi agar koneksi ke database terjaga terus
             PDO::ATTR_PERSISTENT => true,
+            //untuk mode error nya tampilkan eksepsi nya
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ];
         try{
@@ -27,13 +28,14 @@ class Database{
         }
     }
 
+    //fungsi menjalankan query 
     public function query($query){
         //nyiapin permintaan user agar dapat dipakai secara flexibel
         $this->stmt = $this->dbh->prepare($query);
     }
 
     //parameter
-    public function bind($param,$type=null,$value){
+    public function bind($param,$value,$type=null){
         if(is_null($type)){
             //agar switch nya jalan saja
             switch(true){
@@ -53,8 +55,24 @@ class Database{
         //sql nya dibersihkan melalui tahap diatas agar aman
         $this->stmt->bindValue($param,$value,$type);
     }
+    //eksekusi
     public function execute(){
         $this->stmt->execute();
     }
 
+    public function resultSet(){
+        $this->execute();
+        return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    }
+    public function single(){
+        $this->execute();
+        return $this->stmt->fetch(PDO::FETCH_ASSOC);
+
+    }
+    //menghitung berapa baris yang baru berubah di tabel nya
+
+    public function rowCount(){
+        return $this->stmt->rowCount();
+    }
 }

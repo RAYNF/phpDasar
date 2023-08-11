@@ -11,4 +11,47 @@ class Mahasiswa extends Controller{
         //template footer
         $this->view('template/footer');
     }
+
+    public function detail($id){
+        //buat judul
+        $data['judul'] = 'Detail mahasiswa';
+        //ambil data dari model
+        $data['mhs'] = $this->model('Mahasiswa_model')->getMahasiswaById($id);
+        $this->view('template/header',$data);
+        //kirimkan data ke halaman view
+        $this->view('mahasiswa/detail',$data);
+        //template footer
+        $this->view('template/footer');
+    }
+
+    //sama seperti php dasar
+    public function tambah(){
+        if($this->model('Mahasiswa_model')->tambahDataMahasiswa($_POST)>0){
+            //kalau berhasil ditambahkan maka panggil class flasher dengan method setFlash
+            Flasher::setFlash('berhasil ','ditambahkan','success');
+
+            header('Location: '. BASEURL . '/mahasiswa');
+            exit;
+        }
+        else{
+            Flasher::setFlash('gagal ','ditambahkan','danger');
+            header('Location: '. BASEURL . '/mahasiswa');
+            exit;
+        }
+    }
+
+    public function hapus($id){
+        if($this->model('Mahasiswa_model')->hapusDataMahasiswa($id)>0){
+            //kalau berhasil ditambahkan maka panggil class flasher dengan method setFlash
+            Flasher::setFlash('berhasil ','dithapus','success');
+
+            header('Location: '. BASEURL . '/mahasiswa');
+            exit;
+        }
+        else{
+            Flasher::setFlash('gagal ','dihapus','danger');
+            header('Location: '. BASEURL . '/mahasiswa');
+            exit;
+        }
+    }
 }
