@@ -18,7 +18,7 @@
             <?php echo $mhs['nama'];?>
             <a href="<?php echo BASEURL;?>/mahasiswa/detail/<?php echo $mhs['id'];?>" class="badge text-bg-primary float-right ml-1">detail</a>
 
-            <a href="<?php echo BASEURL;?>/mahasiswa/ubah/<?php echo $mhs['id'];?>" class="badge text-bg-warning float-right tampilModalUbah" data-bs-toggle="modal" data-bs-target="#formModal">ubah</a>
+            <a href="<?php echo BASEURL;?>/mahasiswa/ubah/<?php echo $mhs['id'];?>" class="badge text-bg-warning float-right tampilModalUbah" data-bs-toggle="modal" data-bs-target="#formModal" data-id="<?php echo $mhs['id'];?>">ubah</a>
 
             <a href="<?php echo BASEURL;?>/mahasiswa/hapus/<?php echo $mhs['id'];?>" class="badge text-bg-danger float-right ml-1" onclick="return confirm('yakin');">hapus</a>
 
@@ -41,6 +41,7 @@
         <form action="<?php echo BASEURL;?>/mahasiswa/tambah" method="post">
         <div class="mb-3">
 
+        <input type="hidden" name="id" id="id">
         <label for="nama">Nama</label>
         <input type="text" class="form-control" id="nama" name="nama">
         <label for="nrp">Nrp</label>
